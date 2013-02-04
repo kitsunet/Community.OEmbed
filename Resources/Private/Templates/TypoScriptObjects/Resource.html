@@ -1,0 +1,12 @@
+{namespace o=Community\OEmbed\ViewHelpers}
+{namespace typo3=TYPO3\Neos\ViewHelpers}
+<typo3:contentElement node="{node}" reloadable="TRUE">
+	<f:if condition="{uri}">
+		<f:then>
+			<o:embed uri="{uri}" />
+		</f:then>
+		<f:else>
+			<p>No valid resource uri given to oEmbed Content.</p>
+		</f:else>
+	</f:if>
+</typo3:contentElement>

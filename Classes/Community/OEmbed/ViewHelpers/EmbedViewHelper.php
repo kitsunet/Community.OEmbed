@@ -55,7 +55,13 @@ class EmbedViewHelper extends \TYPO3\Fluid\Core\ViewHelper\AbstractViewHelper {
 	 */
 	public function render($uri, $objectName = NULL) {
 		$html = '';
-		$resourceObject = $this->discoveryService->getResource($uri);
+		$resourceObject = NULL;
+		try {
+			$resourceObject = $this->discoveryService->getResource($uri);
+		} catch (\Exception $exception) {
+			$html = '<p>An exception occured trying to discover oEmbed resource at: "' . htmlentities($uri) . '"</p>';
+			$html .= '<dl><dt>' . $exception->getCode() . '</dt><dd>' . htmlentities($exception->getMessage()) . '</dd></dl>';
+		}
 
 		if ($resourceObject !== NULL) {
 			if ($objectName !== NULL) {

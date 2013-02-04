@@ -1,0 +1,5 @@
+prototype(Community.OEmbed:Resource) < prototype(TYPO3.TypoScript:Template)
+prototype(Community.OEmbed:Resource) {
+	templatePath = 'resource://Community.OEmbed/Private/Templates/TypoScriptObjects/Resource.html'
+	uri = ${node.getProperty('uri')}
+}

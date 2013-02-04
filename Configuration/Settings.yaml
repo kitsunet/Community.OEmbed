@@ -1,0 +1,20 @@
+TYPO3:
+  TYPO3CR:
+    contentTypes:
+      'Community.OEmbed:Resource':
+        superTypes: ['TYPO3.Neos.ContentTypes:ContentObject']
+        group: 'Plugins'
+        icon: 'Images/Icons/White/movie_icon-16.png'
+        darkIcon: 'Images/Icons/Black/movie_icon-16.png'
+        label: 'OEmbed Resource'
+        properties:
+          uri:
+            label: 'Resource URI'
+            type: string
+            default: ''
+            group: 'options'
+            reloadOnChange: true
+        groups:
+          options:
+            label: 'Options'
+            priority: 10
