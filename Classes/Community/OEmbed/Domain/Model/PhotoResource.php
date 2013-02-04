@@ -12,16 +12,16 @@ namespace Community\OEmbed\Domain\Model;
 	 *                                                                        */
 
 /**
- * A video oEmbed resource
+ * An image oEmbed resource
  */
-class VideoResource extends AbstractResource implements ResourceInterface {
+class PhotoResource extends AbstractResource implements ResourceInterface {
 
 	/**
 	 * HTML code to embed the oEmbed resource
 	 *
 	 * @var string
 	 */
-	protected $html;
+	protected $url;
 
 	/**
 	 * @var integer
@@ -32,44 +32,6 @@ class VideoResource extends AbstractResource implements ResourceInterface {
 	 * @var integer
 	 */
 	protected $height;
-
-	/**
-	 * @var integer
-	 */
-	protected $duration;
-
-	/**
-	 * @var string
-	 */
-	protected $videoId;
-
-	/**
-	 * @param string $html
-	 */
-	public function setHtml($html) {
-		$this->html = $html;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getHtml() {
-		return $this->html;
-	}
-
-	/**
-	 * @param int $duration
-	 */
-	public function setDuration($duration) {
-		$this->duration = $duration;
-	}
-
-	/**
-	 * @return int
-	 */
-	public function getDuration() {
-		return $this->duration;
-	}
 
 	/**
 	 * @param int $height
@@ -86,17 +48,17 @@ class VideoResource extends AbstractResource implements ResourceInterface {
 	}
 
 	/**
-	 * @param string $videoId
+	 * @param string $url
 	 */
-	public function setVideoId($videoId) {
-		$this->videoId = $videoId;
+	public function setUrl($url) {
+		$this->url = $url;
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getVideoId() {
-		return $this->videoId;
+	public function getUrl() {
+		return $this->url;
 	}
 
 	/**
@@ -119,7 +81,7 @@ class VideoResource extends AbstractResource implements ResourceInterface {
 	 * @return string
 	 */
 	public function __toString() {
-		return $this->html;
+		return '<img href="' . $this->url . '" alt="' . $this->title . '" />';
 	}
 }
 

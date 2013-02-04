@@ -14,7 +14,7 @@ namespace Community\OEmbed\Domain\Model;
 /**
  * A video oEmbed resource
  */
-class VideoResource extends AbstractResource implements ResourceInterface {
+class RichResource extends AbstractResource implements ResourceInterface {
 
 	/**
 	 * HTML code to embed the oEmbed resource
@@ -34,16 +34,6 @@ class VideoResource extends AbstractResource implements ResourceInterface {
 	protected $height;
 
 	/**
-	 * @var integer
-	 */
-	protected $duration;
-
-	/**
-	 * @var string
-	 */
-	protected $videoId;
-
-	/**
 	 * @param string $html
 	 */
 	public function setHtml($html) {
@@ -58,20 +48,6 @@ class VideoResource extends AbstractResource implements ResourceInterface {
 	}
 
 	/**
-	 * @param int $duration
-	 */
-	public function setDuration($duration) {
-		$this->duration = $duration;
-	}
-
-	/**
-	 * @return int
-	 */
-	public function getDuration() {
-		return $this->duration;
-	}
-
-	/**
 	 * @param int $height
 	 */
 	public function setHeight($height) {
@@ -83,20 +59,6 @@ class VideoResource extends AbstractResource implements ResourceInterface {
 	 */
 	public function getHeight() {
 		return $this->height;
-	}
-
-	/**
-	 * @param string $videoId
-	 */
-	public function setVideoId($videoId) {
-		$this->videoId = $videoId;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getVideoId() {
-		return $this->videoId;
 	}
 
 	/**
