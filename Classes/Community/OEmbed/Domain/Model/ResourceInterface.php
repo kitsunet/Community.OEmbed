@@ -16,12 +16,13 @@ namespace Community\OEmbed\Domain\Model;
  */
 interface ResourceInterface {
 
-
 	/**
 	 * Return best available string representation of the oEmbed resource
 	 *
 	 * @return string
 	 */
 	public function __toString();
+
 }
+
 ?>
