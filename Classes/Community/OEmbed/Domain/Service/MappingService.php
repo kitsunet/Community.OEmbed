@@ -28,10 +28,18 @@ class MappingService {
 	 * @param string $data
 	 * @return \Community\OEmbed\Domain\Model\ResourceInterface
 	 */
-	public function mapJsonDataToObject($data) {
+	public function mapJsonToObject($data) {
 		$dataArray = json_decode($data, TRUE);
+		return $this->mapArrayToObject($dataArray);
+	}
 
-		return $this->mapArrayDataToObject($dataArray);
+	/**
+	 * @param string $data
+	 * @return \Community\OEmbed\Domain\Model\ResourceInterface
+	 */
+	public function mapXmlToObject($data) {
+		$xml = new \SimpleXMLElement($data);
+		return $this->mapArrayToObject((array) $xml);
 	}
 
 	/**
@@ -39,13 +47,13 @@ class MappingService {
 	 * @return \Community\OEmbed\Domain\Model\ResourceInterface
 	 * @throws \Community\OEmbed\Exception
 	 */
-	protected function mapArrayDataToObject(array $dataArray) {
+	protected function mapArrayToObject(array $dataArray) {
 		if (isset($dataArray['type']) && $this->objectTypeExists($dataArray['type'])) {
 			$className = $this->deriveClassName($dataArray['type']);
 			$oEmbedResource = new $className;
 			return $this->mapDataToObject($dataArray, $oEmbedResource);
 		} else {
-			throw new \Community\OEmbed\Exception('Retrieved data contained no type, could not map to OEmbed object', 1359741982);
+			throw new \Community\OEmbed\Exception('Retrieved data contained no type, could not map to oEmbed object', 1359741982);
 		}
 	}
 
