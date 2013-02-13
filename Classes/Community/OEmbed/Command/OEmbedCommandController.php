@@ -36,6 +36,7 @@ class OEmbedCommandController extends \TYPO3\Flow\Cli\CommandController {
 		$oEmbedResource = $this->discoveryService->getResource($uri);
 		var_dump($oEmbedResource);
 	}
+
 }
 
 ?>
